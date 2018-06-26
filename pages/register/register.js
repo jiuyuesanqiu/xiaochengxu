@@ -5,7 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    
+  },
+  /**
+   * 注册
+   */
+  register: function(){
+    
   },
 
   /**
