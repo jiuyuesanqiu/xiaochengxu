@@ -1,0 +1,97 @@
+<view class="page">
+  <view class="page__bd">
+
+    <view class='container'>
+      <view class='banner'></view>
+
+      <view class='doctors-home'>
+        <image src='../img/baiyang.png'></image>
+        <view>
+          <text>张启怀</text>
+          <text>主任医师</text>
+        </view>
+
+        <view>
+          <image src='../img/dingwei@3x.png'></image>
+          <text>深圳南山医院 | 全科</text>
+        </view>
+
+      </view>
+
+      <view class='list'>
+        <view class="weui-tab">
+          <view class="weui-navbar">
+            <block wx:for="{{tabs}}" wx:key="*this">
+              <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                <view class="weui-navbar__title">{{item}}</view>
+              </view>
+            </block>
+            <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+          </view>
+          <view class="weui-tab__panel">
+            <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+
+              <view class='ServiceItems'>
+
+                <view class='items'>
+
+                  <view bindtap='toleft'>
+                    <image src='../img/pic@2x.png'></image>
+                    <text>名医图文咨询</text>
+                    <text>¥100.00/次</text>
+                    <text>了解服务说明</text>
+                  </view>
+
+                  <view bindtap='tocenter'>
+                    <image src='../img/Feed@2x.png'></image>
+                    <text>名医电话咨询</text>
+                    <text>¥100.00/30分钟</text>
+                    <text>了解服务说明</text>
+                  </view>
+
+                  <view bindtap='toright'>
+                    <image src='../img/yyjy@3x.png'></image>
+                    <text>名医看诊</text>
+                    <text>立即预约</text>
+                    <text>了解服务说明</text>
+                  </view>
+
+                </view>
+
+                <view class='clear'></view>
+                <view class='Expertise'>
+                  <view>
+                      <image src='../img/bt@2x.png'></image>
+                      <text>擅长</text>
+                      <image src='../img/down2@2x.png'></image>
+                  </view>
+
+                  <view>
+                    维护等换货单号DVD电话电话害的我等会我把电话我的DVD的获取电话DVD和把的缓存的时候的城市的缓存的缓存的缓存吃v 维护等换货单号DVD电话电话害的我等会我把电话我的DVD的获取电话DVD和把的缓存的时候的城市的缓存的缓存的缓存吃v
+
+                  </view>
+
+                </view>
+
+                <view class='clear'></view>
+                <view class='introduce Expertise'>
+                  <view >
+                    <image src='../img/bt@2x.png'></image>
+                    <text>医生介绍</text>
+                    <image src='../img/down2@2x.png'></image>
+                  </view>
+
+                  <view>
+                    维护等换货单号DVD电话电话害的我等会我把电话我的DVD的获取电话DVD和把的缓存的时候的城市的缓存的缓存的缓存吃v 维护等换货单号DVD电话电话害的我等会我把电话我的DVD的获取电话DVD和把的缓存的时候的城市的缓存的缓存的缓存吃v
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="weui-tab__content" hidden="{{activeIndex != 1}}">选项二的内容</view>
+            <view class="weui-tab__content" hidden="{{activeIndex != 2}}">选项三的内容</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

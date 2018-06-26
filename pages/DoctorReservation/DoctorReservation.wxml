@@ -1,0 +1,278 @@
+<view id="doctorHomeEl" class="wrapper">
+  <view class="doctor-info-wrapper">
+
+    <view class="bg">
+      <image src='../img/bag_pic.png'></image>
+    </view>
+
+    <view class="docotr-info">
+      <view class="img-wrapper">
+        <image src='../img/baiyang.png'></image>
+      </view>
+
+      <view class="text-wrapper">
+
+        <view class='news'>
+          <text>李敏锐 </text>
+          <text>主任医师</text>
+        </view>
+
+
+        <view class="adr">
+          <image src='../img/dingwei@3x.png' class='icon'></image>
+          <text>北京307医院 | 骨科</text>
+        </view>
+
+        <text class="txt">擅长：非常专业，情切友好，医生高明</text>
+
+        <view class="prices">
+          <text>
+            <text class="icon">企业支付</text>￥45.00</text>
+          <text>
+            <text class="icon">员工支付</text>￥5.00</text>
+        </view>
+
+      </view>
+
+
+    </view>
+
+
+    <view class="service-item">
+
+      <view class="custom-row">
+        <view class="left">
+          <text>预约项目</text>
+        </view>
+        <view class="right">
+          <text>看顶级专家</text>
+        </view>
+      </view>
+
+      <view class="custom-row">
+        <view class="left">
+          <text>就诊人</text>
+        </view>
+        <view class="right">
+          <picker bindchange="consultant" value="{{consultantIndex}}" range="{{consultantArray}}">
+            <text id="consultUser">
+            <text>{{consultantArray[consultantIndex]}}</text>
+            </text>
+
+            <image class="icon" src='../img/right@2x.png'></image>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <view class="service-item">
+
+      <view class="custom-row">
+        <view class="left">
+          <text>预约城市</text>
+        </view>
+        <view class="right">
+          <text>北京</text>
+        </view>
+      </view>
+      <view class="custom-row">
+        <view class="left">
+          <text>预约医院</text>
+        </view>
+        <view class="right">
+          <text>北京307医院</text>
+        </view>
+      </view>
+
+      <view class="custom-row">
+        <view class="left">
+          <text>预约科室</text>
+        </view>
+        <view class="right">
+          <text>骨科</text>
+        </view>
+      </view>
+
+
+    </view>
+
+    <view class="service-item">
+
+      <view class="custom-row toggleContent">
+        <view class="left">
+          <image class="icon yyxx" src='../img/yyjy@2x.png'></image>
+          <text class="head">预约选项</text>
+        </view>
+        <view class="right"></view>
+      </view>
+
+      <view class="customContent">
+
+        <view class="custom-row">
+          <view class="left">
+            <text>预约日期</text>
+          </view>
+          <view class="right">
+            <picker mode="date" value="{{date}}" start="2018-06-26" end="2030-09-01" bindchange="bindDateChange">
+
+              <text style="color:#757575;">请选预约日期(选填)</text>
+              <image class="icon" src='../img/right@2x.png'></image>
+            </picker>
+          </view>
+        </view>
+
+
+
+        <view class="custom-row">
+          <view class="left">
+            <text>AA</text>
+          </view>
+          <view class="right">
+            <picker bindchange="score" value="{{scoreIndex}}" range="{{scoreArray}}">
+              <text style="color:#757575;">{{scoreArray[scoreIndex]}}</text>
+              <image class="icon" src='../img/right@2x.png'></image>
+            </picker>
+          </view>
+        </view>
+
+        <view class="custom-row">
+          <view class="left">
+            <text>付费方式</text>
+          </view>
+          <view class="right">
+            <picker bindchange="PaymentMethod" value="{{PaymentMethodIndex}}" range="{{scoreArray}}">
+              <text style="color:#757575;">{{scoreArray[scoreIndex]}}</text>
+              <image class="icon" src='../img/right@2x.png'></image>
+            </picker>
+
+          </view>
+        </view>
+
+        <view class="custom-row">
+          <view class="left">
+            <text>是否需要陪诊人员进诊室陪诊</text>
+          </view>
+          <view class="right">
+            <text style="color:#757575;">请选择自定义选项(选填)</text>
+            <image class="icon" src='../img/right@2x.png'></image>
+          </view>
+        </view>
+
+        <view class="custom-row">
+          <view class="left">
+            <text>是否有本院可用的就诊卡</text>
+          </view>
+          <view class="right">
+            <text style="color:#757575;">请选择自定义选项(选填)</text>
+            <image class="icon" src='../img/right@2x.png'></image>
+          </view>
+        </view>
+
+        <view class="custom-row">
+          <view class="left">
+            <text>满意度回访</text>
+          </view>
+          <view class="right">
+            <picker bindchange="ReturnVisit" value="{{ReturnVisitIndex}}" range="{{ReturnVisitArray}}">
+              <text style="color:#757575;">{{ReturnVisitArray[ReturnVisitIndex]}}</text>
+              <image class="icon" src='../img/right@2x.png'></image>
+            </picker>
+          </view>
+        </view>
+
+        <view class="custom-row">
+          <view class="left">
+            <text>全科医生回访</text>
+          </view>
+          <view class="right">
+            <text style="color:#757575;">请选择自定义选项(选填)</text>
+            <image class="icon" src='../img/right@2x.png'></image>
+          </view>
+        </view>
+
+        <view class="custom-row">
+          <view class="left">
+            <text>是否需要寄送医保卡至我方（邮费自理）</text>
+          </view>
+          <view class="right">
+            <text style="color:#757575;">请选择自定义选项(选填)</text>
+            <image class="icon" src='../img/right@2x.png'></image>
+          </view>
+        </view>
+
+        <view class="custom-row">
+          <view class="left">
+            <text>陪诊人员性别要求（尽量协调）</text>
+          </view>
+          <view class="right">
+            <text style="color:#757575;">请选择自定义选项(选填)</text>
+            <image class="icon" src='../img/right@2x.png'></image>
+          </view>
+        </view>
+
+
+
+
+
+      </view>
+
+
+
+
+
+
+
+
+    </view>
+
+    <view class="service-item">
+
+      <view>
+
+        <view class="title">
+          <label class="icon"></label>
+          <text class="text">病情主诉(必填)</text>
+        </view>
+
+        <view class="textarea-wrapper">
+          <textarea id="illnessDesc" maxlength="200" placeholder="请详细描述您的疾病症状、过往病史、身体状况、近期用药等信息，便于我们为您提供更好的服务，国康健康将保护您的隐私安全" class="textarea"></textarea>
+          <view class="counting">
+            <text class="num">0</text>/
+            <text>200</text>
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+    <view class="service-item">
+      <view>
+        <view class="title">
+          <label class="icon"></label>
+          <text class="text">其他要求(选填)</text>
+        </view>
+        <view class="textarea-wrapper">
+          <textarea id="remark" maxlength="200" placeholder="如果您有其他的服务要求或信息需要传达的，例如：希望的医院、科室和医生等，也请告知我们，以便我们为您提供更好的服务" class="textarea"></textarea>
+          <view class="counting">
+            <text class="num">0</text>/
+            <text>200</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="submit-book">
+      <view class="first-page">
+        <image src='../img/bottom_ymy_icon.png'></image>
+        <text>看名医</text>
+
+      </view>
+      <view class="submit" bindtap='sub'>
+        <text>提交预约</text>
+      </view>
+    </view>
+
+
+
+  </view>
+</view>

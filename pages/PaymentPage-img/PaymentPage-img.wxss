@@ -1,0 +1,132 @@
+.all {
+    position: relative;
+    color: #333;
+    font-size: 26rpx;
+}
+.orderContent {
+    background-color: #fff;
+    border-bottom: 1rpx solid #ddd;
+    margin-bottom: 20rpx;
+}
+.orderInfo {
+    height: 130rpx;
+    padding: 20rpx 0;
+    padding-right: 20rpx;
+    margin-left: 20rpx;
+    border-bottom: 1rpx solid #ddd;
+}
+.orderInfo image {
+    width: 178rpx;
+    height: 130rpx;
+    float: left;
+    margin-right: 20rpx;
+}
+.orderInfo view{
+  float: left;
+}
+.orderInfo view text:first-child{
+  line-height: 30rpx;
+    padding-top: 12rpx;
+    font-size: 30rpx;
+    display: block;
+}
+.orderInfo view text:nth-child(2){
+  line-height: 26rpx;
+    padding-top: 50rpx;
+    color: #f55546;
+    padding-right: 20rpx;
+}
+.orderInfo  text:nth-child(3){
+ float: right;
+ padding-top: 12rpx;
+}
+.all .pay-object {
+    padding: 20rpx 0;
+    padding-right: 20rpx;
+    margin-left: 20rpx;
+}
+.all .pay-object view {
+    margin-left: auto;
+    width: 320rpx;
+    text-align: left;
+}
+.all .pay-object view text:nth-child(2){
+  color: #f55546;
+}
+.payWay {
+    background: #fff;
+}
+.payWay view {
+    border-bottom: 1rpx solid #ddd;
+    box-sizing: border-box;
+}
+.payWay view:nth-of-type(1) {
+    line-height: 88rpx;
+    height: 88rpx;
+}
+.payWay>view {
+    padding: 0 20rpx;
+}
+.icon_bt {
+    content: "";
+    display: inline-block;
+    height: 26rpx;
+    width: 4rpx;
+    position: relative;
+    top: 4rpx;
+    background: #04ccab;
+    margin-right: 5rpx;
+}
+.payWay view:not(:first-child) {
+    line-height: 120rpx;
+    height: 120rpx;
+    position: relative;
+}
+.icon_yue {
+    content: "";
+    display: inline-block;
+    height: 37rpx;
+    width: 42rpx;
+    position: relative;
+    top: 5rpx;
+    margin-right: 20rpx;
+}
+.icon_gx{
+  display: inline-block;
+  height: 40rpx;
+  width: 40rpx;
+  position: absolute;
+  right:20rpx;
+  top: 40rpx;
+}
+.bottom-conform {
+    border-top: 1rpx solid #ddd;
+    background-color: #fff;
+    height:98rpx;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+.bottom-conform view {
+    float: left;
+}
+.botton view:first-child {
+    height: 98rpx;
+    line-height: 98rpx;
+    width: 558rpx;
+    padding-left: 20rpx;
+    box-sizing: border-box;
+    background: #fff;
+}
+.botton view:first-child text {
+    color: #f55546;
+}
+.botton view:last-child {
+    background-color: #f55546;
+    color: #fff;
+    text-align: center;
+    height: 98rpx;
+    line-height: 98rpx;
+    width: 192rpx;
+    box-sizing: border-box;
+}

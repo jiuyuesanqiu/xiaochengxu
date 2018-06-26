@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/AboutDoctors/AboutDoctors",
+    "pages/DoctorReservation/DoctorReservation",
+    "pages/TelephoneReservation/TelephoneReservation",
+    "pages/GraphicReservation/GraphicReservation",
+   
+    "pages/MyServices/MyServices",
+    "pages/register/register",
+    "pages/MyCenter/MyCenter",
+    "pages/DoctorsHome/DoctorsHome",
+    "pages/PaymentPage-img/PaymentPage-img",
+    "pages/PaymentPage-phone/PaymentPage-phone",
+    "pages/PaymentPage-doctor/PaymentPage-doctor",
+    "pages/PaymentFail/PaymentFail",
+    "pages/PaymentSuccess/PaymentSuccess"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/AboutDoctors/AboutDoctors",
+        "text": "约名医",
+        "iconPath": "pages/img/bottom_ymy2_icon.png",
+        "selectedIconPath": "pages/img/green-bottom_ymy_icon.png"
+      },
+      {
+        "pagePath": "pages/MyServices/MyServices",
+        "text": "我的服务",
+        "iconPath": "pages/img/pic@2x (3).png",
+        "selectedIconPath": "pages/img/green-pic@2x .png"
+      },
+      {
+        "pagePath": "pages/register/register",
+        "text": "个人中心",
+        "iconPath": "pages/img/me@2x.png",
+        "selectedIconPath": "pages/img/green-me@2x .png"
+      }
+    ]
+  }
+}

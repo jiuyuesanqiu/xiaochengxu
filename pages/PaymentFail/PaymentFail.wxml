@@ -1,0 +1,40 @@
+<view id="paySuccessVue" class="box">
+   
+   <view class="title">
+
+      <text>您的订单已支付失败！</text>
+    
+
+  </view>
+
+  <view class="content">
+    
+    <view>
+      <image src='../img/sb@2x.png'></image>
+    </view>
+
+    <view>
+     
+        <text>订单金额:</text>
+        <text>￥</text>
+        <text>50</text>
+     
+    </view>
+
+    <view>
+      
+        <text>企业支付: ￥45</text>
+      
+        <text>员工支付: ￥5</text>
+        
+      
+    </view>
+
+  </view>
+
+  <view class="request">
+    <text catchtap='continue'>继续支付</text>
+    <text catchtap='return'>返回首页</text>
+  </view>
+
+</view>

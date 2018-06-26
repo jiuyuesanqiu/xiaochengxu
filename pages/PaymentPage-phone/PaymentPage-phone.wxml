@@ -1,0 +1,73 @@
+<view id='productVue' class='all'>
+  <view class="orderContent">
+
+    <view class="orderInfo">
+
+      <image src='../img/xz.png'></image>
+
+      <view>
+        <text>名医电话咨询</text>
+        <text>
+          ￥100
+        </text>
+      </view>
+
+      <text>X1</text>
+    </view>
+
+    <view class="pay-object">
+      <view>
+        <text>企业支付金额: </text>
+        <text>￥90</text>
+      </view>
+
+      <view>
+        <text>员工支付金额: </text>
+        <text>￥10</text>
+      </view>
+
+    </view>
+  </view>
+
+
+  <view class="payWay">
+
+    <view>
+      <text class="icon_bt"></text>
+      <text>选择支付方式</text>
+    </view>
+
+    <view>
+      <image class="icon_yue" src='../img/money@2x.png'></image>
+      <text id="accountPrice">可用余额￥9217.7</text>
+      <image class="icon_gx" src='../img/gouxuan3@2x.png'></image>
+    </view>
+
+    <view>
+      <image class="icon_yue" src='../img/wechat@2x.png'></image>
+      <text>微信支付</text>
+      <image class="icon_gx" src='../img/gouxuan4@2x.png'></image>
+    </view>
+
+    <view>
+      <image class="icon_yue" src='../img/alipay@2x.png'></image>
+      <text>支付宝支付</text>
+      <image class="icon_gx active" src='../img/gouxuan4@2x.png'></image>
+    </view>
+  </view>
+
+
+  <view class="botton bottom-conform">
+    <view>
+      实付金额：
+      <text id="DiscountPrice" style="color:'#e95e12';fontWeight:'normal'">￥5</text>
+    </view>
+    <view bindtap='sub'>
+      <text>确认支付</text>
+    </view>
+  </view>
+
+
+
+
+</view>

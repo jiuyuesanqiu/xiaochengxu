@@ -1,0 +1,8 @@
+{
+  "navigationBarBackgroundColor": "#000",
+  "navigationBarTextStyle": "#fff",
+  "navigationBarTitleText": "医生主页",
+  "backgroundColor": "#fff",
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh": false
+}

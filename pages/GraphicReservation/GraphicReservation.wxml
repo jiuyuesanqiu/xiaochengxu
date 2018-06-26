@@ -1,0 +1,203 @@
+<view id="doctorHomeEl" class="wrapper">
+  <view class="doctor-info-wrapper">
+
+    <view class="bg">
+      <image src='../img/bag_pic.png'></image>
+    </view>
+
+    <view class="docotr-info">
+      <view class="img-wrapper">
+        <image src='../img/baiyang.png'></image>
+      </view>
+
+      <view class="text-wrapper">
+
+        <view class='news'>
+          <text>李敏锐 </text>
+          <text>主任医师</text>
+        </view>
+
+
+        <view class="adr">
+          <image src='../img/dingwei@3x.png' class='icon'></image>
+          <text>北京307医院 | 骨科</text>
+        </view>
+
+        <text class="txt">擅长：非常专业，情切友好，医生高明</text>
+
+        <view class="prices">
+          <text>
+            <text class="icon">企业支付</text>￥45.00</text>
+          <text>
+            <text class="icon">员工支付</text>￥5.00</text>
+        </view>
+
+      </view>
+
+
+    </view>
+
+
+    <view class="service-item">
+
+      <view class="custom-row">
+        <view class="left">
+          <text>咨询项目</text>
+        </view>
+        <view class="right">
+          <text>名医图文咨询</text>
+        </view>
+      </view>
+
+      <view class="custom-row">
+        <view class="left">
+          <text>咨询者</text>
+        </view>
+
+        <view class="right">
+
+          <picker bindchange="consultant" value="{{consultantIndex}}" range="{{consultantArray}}">
+            <text id="consultUser">
+            <text>{{consultantArray[consultantIndex]}}</text>
+            </text>
+
+            <image class="icon" src='../img/right@2x.png'></image>
+          </picker>
+          
+        </view>
+      </view>
+
+      <view class="custom-row">
+        <view class="left">
+          <text>疾病症状</text>
+        </view>
+        <view class="right">
+          <input type="text" id="symptoms" placeholder='请输入疾病名称或症状(必填)' maxlength="15" class="inpt" />
+        </view>
+      </view>
+    </view>
+
+    <view class="service-item">
+
+      <view class="custom-row toggleContent">
+        <view class="left">
+          <image class="icon yyxx" src='../img/yyjy@2x.png'></image>
+          <text class="head">预约选项</text>
+        </view>
+        <view class="right"></view>
+      </view>
+
+      <view class="customContent">
+
+        <view class="custom-row">
+          <view class="left">
+            <text>A</text>
+          </view>
+          <view class="right">
+            <picker bindchange="score" value="{{scoreIndex}}" range="{{scoreArray}}">
+              <text style="color:#757575;">{{scoreArray[scoreIndex]}}</text>
+              <image class="icon" src='../img/right@2x.png'></image>
+            </picker>
+          </view>
+        </view>
+
+        <view class="custom-row">
+          <view class="left">
+            <text>满意度回访</text>
+          </view>
+          <view class="right">
+            <picker bindchange="ReturnVisit" value="{{ReturnVisitIndex}}" range="{{ReturnVisitArray}}">
+              <text style="color:#757575;">{{ReturnVisitArray[ReturnVisitIndex]}}</text>
+              <image class="icon" src='../img/right@2x.png'></image>
+            </picker>
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+    <view class="service-item">
+
+      <view>
+
+        <view class="title">
+          <label class="icon"></label>
+          <text class="text">病情主诉(必填)</text>
+        </view>
+
+        <view class="textarea-wrapper">
+          <textarea id="illnessDesc" maxlength="200" placeholder="请详细描述您的疾病症状、过往病史、身体状况、近期用药等信息，便于我们为您提供更好的服务，国康健康将保护您的隐私安全" class="textarea"></textarea>
+          <view class="counting">
+            <text class="num">0</text>/
+            <text>200</text>
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+    <view class="service-item">
+      <view>
+        <view class="title">
+          <label class="icon"></label>
+          <text class="text">检查报告、影像图片</text>
+        </view>
+        <view class="imgs-wrapper">
+          <view class="img-list"></view>
+          <view class="add-pics-wrapper">
+            <view class="camera-wrapper">
+              <image src='../img/camera@2x.png' class='icon'></image>
+            </view>
+            <text class="add-pics">添加照片</text>
+          </view>
+        </view>
+        <view class="txt-tips">
+          <text>您最多可上传4张，请选择重要检查项目且保证图片清晰度</text>
+        </view>
+      </view>
+    </view>
+
+
+    <view class="service-item">
+      <view>
+        <view class="title">
+          <label class='lb'>
+            <input type="checkbox" class="cbox" />
+          </label>
+
+          <text class="text link">咨询医疗问题提前须知</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="service-item">
+      <view>
+        <view class="title">
+          <label class="icon"></label>
+          <text class="text">其他要求(选填)</text>
+        </view>
+        <view class="textarea-wrapper">
+          <textarea id="remark" maxlength="200" placeholder="如果您有其他的服务要求或信息需要传达的，例如：希望的医院、科室和医生等，也请告知我们，以便我们为您提供更好的服务" class="textarea"></textarea>
+          <view class="counting">
+            <text class="num">0</text>/
+            <text>200</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="submit-book">
+      <view class="first-page">
+        <image src='../img/bottom_ymy_icon.png'></image>
+        <text>看名医</text>
+
+      </view>
+      <view class="submit" bindtap='sub'>
+        <text>提交预约</text>
+      </view>
+    </view>
+
+
+
+  </view>
+</view>
