@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/register/register",
     "pages/DoctorReservation/DoctorReservation",
     "pages/TelephoneReservation/TelephoneReservation",
     "pages/GraphicReservation/GraphicReservation",
     "pages/AboutDoctors/AboutDoctors",
     "pages/MyServices/MyServices",
-    "pages/register/register",
     "pages/MyCenter/MyCenter",
     "pages/DoctorsHome/DoctorsHome",
     "pages/PaymentPage-img/PaymentPage-img",

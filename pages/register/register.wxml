@@ -1,7 +1,7 @@
 <view class="logo">
   <image src='../img/logo.png'></image>
 </view>
-<form bindsubmit="">
+<form bindsubmit="register">
   <view class='name Verification' >
     <text>姓名</text>
     <input type='text' placeholder='请输入您的姓名' name="name"></input>
@@ -15,7 +15,7 @@
 
   <view class='VerificationCode Verification' >
     <text>验证码</text>
-    <input type='text' placeholder='请输入收到的验证码' name="verification"></input>
+    <input type='text' placeholder='请输入收到的验证码' name="verifyCode"></input>
   </view>
 
   <view class='Agreement'>

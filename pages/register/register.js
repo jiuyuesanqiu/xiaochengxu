@@ -10,8 +10,23 @@ Page({
   /**
    * 注册
    */
-  register: function(){
-    
+  register: function(e){
+    console.log(e.detail.value.name)
+    wx.request({
+      url: 'http://localhost:8080/member/register.do',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      data: {
+        "name":e.detail.value.name,
+        "phone":e.detail.value.phone,
+        "verifyCode": e.detail.value.verifyCode
+      },
+      method:"POST",
+      success: function (res) {
+        console.log(res.data)
+      }
+    })
   },
 
   /**

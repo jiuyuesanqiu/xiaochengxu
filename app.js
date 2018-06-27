@@ -9,7 +9,37 @@ App({
     // 登录
     wx.login({
       success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        //发起网络请求
+        wx.request({
+          url: 'http://localhost:8080/wxpay/openid.do',
+          data: {
+            code: res.code
+          },
+          success:function(e){
+            wx.setStorage({
+              key: 'openid',
+              data: e.data.openid,
+            })
+            wx.request({
+              url: 'http://localhost:8080/member/wxlogin.do',
+              data:{
+                openid:e.data.openid
+              },
+              success:function(result){
+                console.log("我登录了")
+                console.log(result);
+                if(result.data.memberId==""){
+                  wx.redirectTo({
+                    url: 'register'
+                  })
+                }
+              }
+            })
+          },
+          fail:function(){
+            console.log("登录失败！")
+          }
+        })
       }
     })
     // 获取用户信息
