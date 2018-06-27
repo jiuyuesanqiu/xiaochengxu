@@ -1,9 +1,12 @@
 {
   "pages": [
-    "pages/register/register",
-    "pages/DoctorReservation/DoctorReservation",
+      "pages/DoctorReservation/DoctorReservation",
     "pages/TelephoneReservation/TelephoneReservation",
     "pages/GraphicReservation/GraphicReservation",
+    "pages/register/register",
+ 
+    
+   
     "pages/AboutDoctors/AboutDoctors",
     "pages/MyServices/MyServices",
     "pages/MyCenter/MyCenter",

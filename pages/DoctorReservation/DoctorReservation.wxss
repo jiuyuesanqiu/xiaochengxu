@@ -303,9 +303,7 @@
     background: linear-gradient(to right, #04ccab, #5ce693);
     text-align: center;
     line-height: 98rpx;
-}
-.wrapper .submit-book .submit text {
-    display: block;
+     display: block;
     font-size: 30rpx;
     color: #ffffff;
 }

@@ -37,7 +37,7 @@
 
     </view>
 
-
+  <form bindsubmit="formSubmit">
     <view class="service-item">
 
       <view class="custom-row">
@@ -115,7 +115,7 @@
           <view class="right">
             <picker mode="date" value="{{date}}" start="2018-06-26" end="2030-09-01" bindchange="bindDateChange">
 
-              <text style="color:#757575;">请选预约日期(选填)</text>
+              <text style="color:#757575;">{{date}}</text>
               <image class="icon" src='../img/right@2x.png'></image>
             </picker>
           </view>
@@ -140,8 +140,9 @@
             <text>付费方式</text>
           </view>
           <view class="right">
-            <picker bindchange="PaymentMethod" value="{{PaymentMethodIndex}}" range="{{scoreArray}}">
-              <text style="color:#757575;">{{scoreArray[scoreIndex]}}</text>
+
+            <picker bindchange="PaymentMethod" value="{{PaymentMethodIndex}}" range="{{PaymentMethodArray}}">
+              <text style="color:#757575;">{{PaymentMethodArray[PaymentMethodIndex]}}</text>
               <image class="icon" src='../img/right@2x.png'></image>
             </picker>
 
@@ -153,8 +154,12 @@
             <text>是否需要陪诊人员进诊室陪诊</text>
           </view>
           <view class="right">
-            <text style="color:#757575;">请选择自定义选项(选填)</text>
-            <image class="icon" src='../img/right@2x.png'></image>
+
+            <picker bindchange="AccompanyingDiagnosis" value="{{AccompanyingDiagnosisIndex}}" range="{{AccompanyingDiagnosisArray}}">
+              <text style="color:#757575;">{{AccompanyingDiagnosisArray[AccompanyingDiagnosisIndex]}}</text>
+              <image class="icon" src='../img/right@2x.png'></image>
+            </picker>
+
           </view>
         </view>
 
@@ -163,8 +168,12 @@
             <text>是否有本院可用的就诊卡</text>
           </view>
           <view class="right">
-            <text style="color:#757575;">请选择自定义选项(选填)</text>
-            <image class="icon" src='../img/right@2x.png'></image>
+
+             <picker bindchange="MedicalCard" value="{{MedicalCardIndex}}" range="{{MedicalCardArray}}">
+              <text style="color:#757575;">{{MedicalCardArray[MedicalCardIndex]}}</text>
+              <image class="icon" src='../img/right@2x.png'></image>
+            </picker>
+
           </view>
         </view>
 
@@ -185,8 +194,12 @@
             <text>全科医生回访</text>
           </view>
           <view class="right">
-            <text style="color:#757575;">请选择自定义选项(选填)</text>
-            <image class="icon" src='../img/right@2x.png'></image>
+
+           <picker bindchange="DoctorReturnVisit" value="{{DoctorReturnVisitIndex}}" range="{{DoctorReturnVisitArray}}">
+              <text style="color:#757575;">{{DoctorReturnVisitArray[DoctorReturnVisitIndex]}}</text>
+              <image class="icon" src='../img/right@2x.png'></image>
+            </picker>
+
           </view>
         </view>
 
@@ -195,8 +208,12 @@
             <text>是否需要寄送医保卡至我方（邮费自理）</text>
           </view>
           <view class="right">
-            <text style="color:#757575;">请选择自定义选项(选填)</text>
-            <image class="icon" src='../img/right@2x.png'></image>
+
+             <picker bindchange="send" value="{{sendIndex}}" range="{{sendArray}}">
+              <text style="color:#757575;">{{sendArray[sendIndex]}}</text>
+              <image class="icon" src='../img/right@2x.png'></image>
+            </picker>
+
           </view>
         </view>
 
@@ -205,8 +222,12 @@
             <text>陪诊人员性别要求（尽量协调）</text>
           </view>
           <view class="right">
-            <text style="color:#757575;">请选择自定义选项(选填)</text>
-            <image class="icon" src='../img/right@2x.png'></image>
+
+            <picker bindchange="sex" value="{{sexIndex}}" range="{{sexArray}}">
+              <text style="color:#757575;">{{sexArray[sexIndex]}}</text>
+              <image class="icon" src='../img/right@2x.png'></image>
+            </picker>
+
           </view>
         </view>
 
@@ -267,12 +288,12 @@
         <text>看名医</text>
 
       </view>
-      <view class="submit" bindtap='sub'>
-        <text>提交预约</text>
-      </view>
+      <button class="submit" bindtap='sub' form-type='submit'>
+       提交预约
+      </button>
     </view>
 
-
+  </form>
 
   </view>
 </view>
