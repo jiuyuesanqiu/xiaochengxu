@@ -1,185 +1,59 @@
-<view class="page">
-  <view class="page__bd">
 <view class='container'>
-  <view class='search'>
-    <form>
-      <input type='text' placeholder='请输入症状,疾病,医生名字'></input>
-      <image src='../img/search@2x.png'></image>
-    </form>
+  <!-- 搜索框 -->
+  <view class="weui-search-bar zindex-top">
+    <view class="weui-search-bar__form">
+      <view class="weui-search-bar__box">
+        <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+        <input type="text" class="weui-search-bar__input" placeholder="请输入症状、疾病、医生名字" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" bindinput="search" />
+        <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+          <icon type="clear" size="14"></icon>
+        </view>
+      </view>
+      <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+        <icon class="weui-icon-search" type="search" size="14"></icon>
+        <view class="weui-search-bar__text">搜索</view>
+      </label>
+    </view>
+    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
   </view>
-  <view class='filtrate'>
-    <view class="nav">
-      <view class="nav-son {{shownavindex == 1? 'active' : ''}}" bindtap="listqy" data-nav="1" wx:key="14">
-        <view class="content">{{inputCity}}</view>
-        <view class="icon"></view>
-      </view>
-      <view class="nav-son borders {{shownavindex == 2? 'active' : ''}}" bindtap="list" data-nav="2" wx:key="13">
-        <view class="content">{{inputHospital}}</view>
-        <view class="icon"></view>
-      </view>
-      <view class="nav-son borders {{shownavindex == 3? 'active' : ''}}" bindtap="listpx" data-nav="3" wx:key="12">
-        <view class="content">{{inputOffice}}</view>
-        <view class="icon"></view>
-      </view>
-      <view class="nav-son {{shownavindex == 4? 'active' : ''}}" bindtap="listzc" data-nav="4" wx:key="11">
-        <view class="content">{{inputTtile}}</view>
-        <view class="icon"></view>
-      </view>
+  <!-- 分组搜索 -->
+  <view class='wrap'>
+    <view>
+      <multiSelector itemName="城市" condition="{{condition}}" arrayData="{{cityArray}}" bindidChange="cityChange" this-id="cityId" key="cityName"></multiSelector>
     </view>
-    <view class="quyu {{qyopen ? 'slidown' : 'slidup'}} {{qyshow ? 'disappear':''}} zindex-medium">
-      <view class="qy quyu-left">
-        <view class="{{select1 == index ? 'current' : ''}}" wx:for="{{cityleft}}" bindtap="selectleft" data-city='{{index}}' wx:key="6">
-          {{index}}
-        </view>
-      </view>
-      <view class="qy quyu-center">
-        <view class="{{select2 == index ? 'current2' : ''}}" wx:for="{{citycenter}}" bindtap="selectcenter" data-city='{{index}}' wx:key="5">
-          {{index}}
-        </view>
-      </view>
+    <view>
+      <pull-down-filtrate itemName="医院" condition="{{condition}}" array="{{hospitalArray}}" bindidChange="hospitalChange" this-id="hospitalId" key="hospitalName"></pull-down-filtrate>
     </view>
-   
-    <view class="temp temp1 {{nzopen ? 'slidown' : 'slidup'}} {{nzshow ? 'disappear':''}}">
-      <view wx:for="{{content}}" bindtap='showHospital' data-text='{{item}}' wx:key="3">
-        {{item}}
-      </view>
+    <view>
+      <multiSelector itemName="科室" condition="{{condition}}" arrayData="{{departmentArray}}" bindidChange="departmentChange" this-id="departmentId" key="departmentName"></multiSelector>
     </view>
-    <view class="temp temp2 {{pxopen ? 'slidown' : 'slidup'}} {{pxshow ? 'disappear':''}}">
-      <view wx:for="{{content}}" bindtap='showOffice' data-text='{{item}}' wx:key="2">
-        {{item}}
-      </view>
+    <view>
+      <pull-down-filtrate itemName="职称" condition="{{condition}}" bindidChange="titleChange" array="{{titleArray}}" this-id="jobtitle" key="jobtitle"></pull-down-filtrate>
     </view>
-    <view class="temp temp3 {{zcopen ? 'slidown' : 'slidup'}} {{zcshow ? 'disappear':''}}">
-      <view wx:for="{{content}}" bindtap='showTitle' data-text='{{item}}' wx:key="1">
-        {{item}}
+  </view>
+  <!-- 滚动加载列表 -->
+  <scroll-view scroll-y='true' style="height:{{scrollHeight}}px" bindscrolltolower='lower'>
+    <block wx:for="{{doctorArray}}" data-id="{{index}}" wx:key="{{index}}">
+      <view class='doctors-details' catchtap='toin' data-doctorId='{{item.docId}}' data-introduction='{{item.introduction}}'>
+        <image src='../img/baiyang.png'></image>
+        <view class='doctors-details-right'>
+          <view>
+            <text>{{item.docName}}</text>
+            <text>{{item.jobTitle}}</text>
+          </view>
+          <view>
+            <image src='../img/dingwei@3x.png'></image>
+            <text>{{item.hospital}} | {{item.department}}</text>
+          </view>
+          <view style=''>擅长：{{item.introduction}}</view>
+        </view>
       </view>
+    </block>
+    <view class="weui-loadmore" wx:if="{{loadStatus}}">
+      <view class="weui-loadmore__tips">正在加载..</view>
     </view>
-    <view class="fullbg {{isfull ?'fullopacity':''}}" bindtap="hidebg"></view>
-  </view> 
-  
-  <scroll-view>
-    <view class='doctors-details' catchtap='toin'>
-      <image src='../img/baiyang.png'></image>
-      <view class='doctors-details-right'>
-
-        <view>
-          <text>张启怀</text>
-          <text>主任医师</text>
-        </view>
-
-        <view>
-          <image src='../img/dingwei@3x.png'></image>
-          <text>深圳南山医院 | 全科</text>
-        </view>
-
-        <view>擅长:治疗复发性口腔溃疡，治疗复发性口腔溃疡，治疗复发性口腔溃疡</view>
-
-      </view>
-    </view>
-
-    <view class='doctors-details' bindtap='toin'>
-      <image src='../img/baiyang.png'></image>
-      <view class='doctors-details-right'>
-
-        <view>
-          <text>张启怀</text>
-          <text>主任医师</text>
-        </view>
-
-        <view>
-          <image src='../img/dingwei@3x.png'></image>
-          <text>深圳南山医院 | 全科</text>
-        </view>
-
-        <view>擅长:治疗复发性口腔溃疡，治疗复发性口腔溃疡，治疗复发性口腔溃疡</view>
-
-      </view>
-    </view>
-
-    <view class='doctors-details'>
-      <image src='../img/baiyang.png'></image>
-      <view class='doctors-details-right'>
-
-        <view>
-          <text>张启怀</text>
-          <text>主任医师</text>
-        </view>
-
-        <view>
-          <image src='../img/dingwei@3x.png'></image>
-          <text>深圳南山医院 | 全科</text>
-        </view>
-
-        <view>擅长:治疗复发性口腔溃疡，治疗复发性口腔溃疡，治疗复发性口腔溃疡</view>
-
-      </view>
-    </view>
-
-    <view class='doctors-details'>
-      <image src='../img/baiyang.png'></image>
-      <view class='doctors-details-right'>
-
-        <view>
-          <text>张启怀</text>
-          <text>主任医师</text>
-        </view>
-
-        <view>
-          <image src='../img/dingwei@3x.png'></image>
-          <text>深圳南山医院 | 全科</text>
-        </view>
-
-        <view>擅长:治疗复发性口腔溃疡，治疗复发性口腔溃疡，治疗复发性口腔溃疡</view>
-
-      </view>
-    </view>
-
-    <view class='doctors-details'>
-      <image src='../img/baiyang.png'></image>
-      <view class='doctors-details-right'>
-
-        <view>
-          <text>张启怀</text>
-          <text>主任医师</text>
-        </view>
-
-        <view>
-          <image src='../img/dingwei@3x.png'></image>
-          <text>深圳南山医院 | 全科</text>
-        </view>
-
-        <view>擅长:治疗复发性口腔溃疡，治疗复发性口腔溃疡，治疗复发性口腔溃疡</view>
-
-      </view>
-    </view>
-
-    <view class='doctors-details' bindtap='toin'>
-      <image src='../img/baiyang.png'></image>
-      <view class='doctors-details-right'>
-
-        <view>
-          <text>张启怀</text>
-          <text>主任医师</text>
-        </view>
-
-        <view>
-          <image src='../img/dingwei@3x.png'></image>
-          <text>深圳南山医院 | 全科</text>
-        </view>
-
-        <view>擅长:治疗复发性口腔溃疡，治疗复发性口腔溃疡，治疗复发性口腔溃疡</view>
-
-      </view>
+    <view class="weui-loadmore weui-loadmore_line" wx:if="{{nodata}}">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">我也是有底线的</view>
     </view>
   </scroll-view>
-
-  
-
-
-
-
 </view>
-</view>
-</view>
-
-

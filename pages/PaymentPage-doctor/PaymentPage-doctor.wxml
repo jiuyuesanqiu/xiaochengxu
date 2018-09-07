@@ -3,68 +3,41 @@
 
     <view class="orderInfo">
 
-      <image src='../img/kzj.png'></image>
+      <image src='../img/xz.png'></image>
 
       <view>
-        <text>看顶级专家</text>
+        <text></text>
         <text>
-          ￥100
+          ￥1000
         </text>
       </view>
-
       <text>X1</text>
     </view>
-
-    <view class="pay-object">
-      <view>
-        <text>企业支付金额: </text>
-        <text>￥90</text>
-      </view>
-
-      <view>
-        <text>员工支付金额: </text>
-        <text>￥10</text>
-      </view>
-
-    </view>
   </view>
-
-
-  <view class="payWay">
-
-    <view>
-      <text class="icon_bt"></text>
-      <text>选择支付方式</text>
-    </view>
-
-    <view>
-      <image class="icon_yue" src='../img/money@2x.png'></image>
-      <text id="accountPrice">可用余额￥9217.7</text>
-      <image class="icon_gx" src='../img/gouxuan3@2x.png'></image>
-    </view>
-
-    <view>
-      <image class="icon_yue" src='../img/wechat@2x.png'></image>
-      <text>微信支付</text>
-      <image class="icon_gx" src='../img/gouxuan4@2x.png'></image>
-    </view>
-
-    <view>
-      <image class="icon_yue" src='../img/alipay@2x.png'></image>
-      <text>支付宝支付</text>
-      <image class="icon_gx active" src='../img/gouxuan4@2x.png'></image>
-    </view>
+  <view>
+    <text class="icon_bt"></text>
+    <text>选择支付方式</text>
   </view>
-
+  <view class="weui-cells weui-cells_after-title">
+    <radio-group bindchange="radioChange">
+      <label class="weui-cell weui-check__label" wx:for="{{radioItems}}" wx:key="value">
+        <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}" />
+        <view class="weui-cell__bd">
+          <image class="icon_yue" src="{{item.imgurl}}"></image>{{item.name}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
+          <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+        </view>
+      </label>
+    </radio-group>
+  </view>
 
   <view class="botton bottom-conform">
     <view>
       实付金额：
-      <text id="DiscountPrice" style="color:'#e95e12';fontWeight:'normal'">￥5</text>
+      <text id="DiscountPrice" style="color:'#e95e12';fontWeight:'normal'">￥1</text>
     </view>
     <view bindtap='sub'>
       <text>确认支付</text>
     </view>
   </view>
-
 </view>

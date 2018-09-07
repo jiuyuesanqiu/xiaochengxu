@@ -1,7 +1,7 @@
 {
   "navigationBarBackgroundColor": "#000",
   "navigationBarTextStyle": "#fff",
-  "navigationBarTitleText": "个人中心",
+  "navigationBarTitleText": "会员注册",
   "backgroundColor": "#fff",
   "backgroundTextStyle": "light",
   "enablePullDownRefresh": false

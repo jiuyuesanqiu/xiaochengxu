@@ -306,4 +306,5 @@
      display: block;
     font-size: 30rpx;
     color: #ffffff;
+    z-index: 999
 }

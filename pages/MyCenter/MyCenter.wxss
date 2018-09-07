@@ -1,212 +1,48 @@
-.all {
-  padding-bottom: 99rpx;
-  background-color: #f5f5f5;
+/* pages/MyCenter/MyCenter.wxss */
+.bg{
+  height: 300rpx;
+  background-color: #60C45E;
+  margin-bottom: 50rpx;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
 }
-
-.bgContent {
-  height: 265rpx;
+.head image{
+  width: 100rpx;
+  height: 100rpx;
+  margin: 0 30rpx;
+}
+.name{
+  font-size: 16px;
+  margin-right: 20rpx;
+}
+.grade{
+  border: 1px solid #ffffff;
+  border-radius: 20rpx;
+}
+.information{
+  border: 1px solid #ffffff;
+  border-radius: 20rpx;
+}
+.layout{
+  margin-top: 25rpx;
+  font-size: 35rpx;
+}
+.list-tab{
+  display:inline-flex;
+  align-items: center;
+  height: 100rpx;
   width: 100%;
-  position: absolute;
-  background-size: cover;
+  border-bottom: 1rpx gray solid;
 }
-
-.bgContent image {
-  width: 100%;
-  height: 100%;
-}
-
-.top {
-  position: relative;
-}
-
-.header {
-  padding: 20rpx;
-  display: inline-block;
-}
-
-.header image {
-  height: 128rpx;
-  width: 128rpx;
-  border-radius: 100%;
-  border: 2rpx solid #04ccab;
-}
-
-.title {
-  display: inline-block;
-  vertical-align: top;
-}
-
-.title .name {
-  font-size: 28rpx;
-  padding: 28rpx 10rpx 20rpx;
-  color: #fff;
-}
-
-.title .basicallyInfo {
-  width: 140rpx;
-  height: 44rpx;
-  background: #fff;
-  line-height: 44rpx;
- display: flex;
- border-radius: 70rpx;
- justify-content: center;
- align-items: center;
-  color: #04ccab;
-}
-
-.title .basicallyInfo text:nth-of-type(1) {
-  color: #04ccab;
-  font-size: 22rpx;
-  vertical-align: middle;
-  margin-right: 3rpx;
-  margin-top: 1rpx;
-  display: inline-block;
-}
-
-.title .basicallyInfo image {
-  width: 10rpx;
-  height: 20rpx;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.news {
-  width: 38rpx;
-  height: 42rpx;
-  position: absolute;
-  top: 20rpx;
-  right: 20rpx;
-}
-
-.personalContent {
-  position: relative;
-  bottom: 89rpx;
-  top: -20rpx;
-}
-
-.doctor_text {
-  background-color: #fff;
-  font-size: 24rpx;
-  color: #04ccab;
-  margin: 0 20rpx;
-  border-radius: 4rpx;
-  margin-bottom: 20rpx;
-  height: 160rpx;
-}
-
-.doctor_text text:nth-of-type(1) {
-  padding-top: 10rpx;
-  font-size: 26rpx;
-}
-
-.doctor_text text {
-  display: block;
-  margin-left: 20rpx;
-  line-height: 47rpx;
-}
-
-.doctor_text text:nth-of-type(3) {
-  color: #999;
-  padding-bottom: 20rpx;
-}
-
-.text image {
-  width: 15rpx;
-  height: 30rpx;
-  position: absolute;
-  top: 65rpx;
-  right: 40rpx;
-  display: inline-block;
-}
-
-.functionalOperation {
-  display: flex;
-  background-color: #fff;
-  font-size: 26rpx;
-  color: #333;
+.list-tab view{
+  width: 85%;
+  display: inline-flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  margin: 0 20rpx;
-  border-radius: 4rpx;
-  margin-bottom: 20rpx;
 }
-
-.functionalOperation view {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.functionalOperation view image {
-  display: inline-block;
-  width: 42rpx;
-  height: 40rpx;
-  padding-top: 39rpx;
-  padding-bottom: 20rpx;
-}
-
-.functionalOperation text {
-  line-height: 26rpx;
-  margin-bottom: 39rpx;
-}
-
-.balance {
-  background-color: #fff;
-  border-radius: 4rpx;
-  color: #04ccab;
-  font-size: 26rpx;
-  display: flex;
-  margin: 0 20rpx;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20rpx;
-}
-
-.balance view {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  justify-content: center;
-}
-
-.balance text:first-child {
-  padding-top: 31rpx;
-  padding-bottom: 10rpx;
-  line-height: 26rpx;
-}
-
-.balance text:nth-child(2) {
-  padding-bottom: 10rpx;
-}
-
-.recharge text {
-  border-left: 1rpx solid #04ccab;
-  border-right: 1rpx solid #04ccab;
-}
-
-.listNav {
-  background-color: #fff;
-  font-size: 26rpx;
-  color: #333;
-  margin: 0 20rpx;
-  padding-left: 20rpx;
-}
-
-.listNav view {
-  line-height: 88rpx;
-  height: 88rpx;
-  position: relative;
-  border-bottom: 1rpx solid #ddd;
-  box-sizing: border-box;
-}
-
-.listNav view image {
-  width: 15rpx;
-  height: 30rpx;
-  position: absolute;
-  top: 32rpx;
-  right: 20rpx;
+.list-tab image{
+  height: 80rpx;
+  width: 80rpx;
 }

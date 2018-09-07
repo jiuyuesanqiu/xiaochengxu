@@ -41,10 +41,10 @@
 }
 
 .doctors-details {
-  width: 710rpx;
+  width:100%;
   height: 172rpx;
   background: #fff;
-  margin: 20rpx auto;
+  margin-bottom:20rpx;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -265,3 +265,25 @@
   position: absolute;
   z-index: 2;
 }  
+
+.none{
+  display: none;
+}
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  height:1.8rem;
+  align-items:center;
+}
+
+.wrap view {
+  width: 91px;
+  overflow: hidden; 
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+}
+.weui-loadmore{
+  height: 2rem;
+}

@@ -1,21 +1,30 @@
 {
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light"
+  },
   "pages": [
-      "pages/DoctorReservation/DoctorReservation",
+    "pages/register/register",
+    "pages/DoctorsHome/DoctorsHome",
+    "pages/testPage/test",
+    "pages/DoctorReservation/DoctorReservation",
     "pages/TelephoneReservation/TelephoneReservation",
     "pages/GraphicReservation/GraphicReservation",
-    "pages/register/register",
- 
-    
-   
+    "pages/PaymentPage-img/PaymentPage-img",
     "pages/AboutDoctors/AboutDoctors",
     "pages/MyServices/MyServices",
     "pages/MyCenter/MyCenter",
-    "pages/DoctorsHome/DoctorsHome",
-    "pages/PaymentPage-img/PaymentPage-img",
     "pages/PaymentPage-phone/PaymentPage-phone",
     "pages/PaymentPage-doctor/PaymentPage-doctor",
     "pages/PaymentFail/PaymentFail",
-    "pages/PaymentSuccess/PaymentSuccess"
+    "pages/PaymentSuccess/PaymentSuccess",
+    "pages/AccountWater/AccountWater",
+    "pages/OrderList/OrderList",
+    "pages/AccountRecharge/AccountRecharge",
+    "pages/MemberInformation/MemberInformation",
+    "pages/AboutUs/AboutUs"
   ],
   "tabBar": {
     "list": [
@@ -32,10 +41,11 @@
         "selectedIconPath": "pages/img/green-pic@2x .png"
       },
       {
-        "pagePath": "pages/register/register",
+        "pagePath": "pages/MyCenter/MyCenter",
         "text": "个人中心",
         "iconPath": "pages/img/me@2x.png",
         "selectedIconPath": "pages/img/green-me@2x .png"
+        
       }
     ]
   }

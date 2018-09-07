@@ -1,0 +1,23 @@
+<!--pages/AccountWater/AccountWater.wxml-->
+
+<block wx:for="{{accountWater}}">
+  <view class='tab'>
+    <view class='vertical'>
+      <text class='type'>{{item.changeType}}</text>
+      <text class='date'>{{item.chgTime}}</text>
+    </view>
+    <view class='center'>
+      <text class='yuan'>
+      {{item.chgDict}}{{item.chgAmt}}元
+      </text>
+    </view>
+  </view>
+</block>
+<view wx:if="{{condition}}" class='nodata'>
+  <view>
+    <image src='https://lg-qny6chn0-1256986930.cos.ap-shanghai.myqcloud.com/明细.png'></image>
+    <text>
+        暂无账户流水
+    </text>
+  </view>
+</view>

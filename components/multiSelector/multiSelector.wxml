@@ -1,0 +1,13 @@
+<!--components/multiSelector/multiSelector.wxml-->
+<view>
+  <picker mode="multiSelector" value="{{multiIndex}}" range="{{array}}" range-key='{{key}}' bindchange='bindMultichange' bindcolumnchange="bindMulticolumnchange">
+    <view class="picker">
+      <view wx:if="{{condition}}">
+        {{array_bk[1][multiIndex[1]][key]}}
+      </view>
+      <view wx:if="{{!condition}}">
+        {{itemName}}
+      </view>
+    </view>
+  </picker>
+</view>

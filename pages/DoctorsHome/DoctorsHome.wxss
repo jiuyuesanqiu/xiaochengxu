@@ -1,3 +1,4 @@
+
 .container{
   padding: 0;
   background: #f5f5f5;
@@ -153,4 +154,36 @@ margin-bottom: 20rpx;
 }
 .introduce view:nth-child(2){
   -webkit-line-clamp: 8;
+}
+.box{
+  display: flex;
+  justify-content:space-between;
+  padding: 0 40rpx;
+}
+.col{
+  flex-direction:column;
+}
+.weui-tab__content image{
+  width: 25rpx;
+  height: 25rpx;
+}
+.box text{
+  font-size: 14px;
+  padding-right: 5px;
+}
+.center{
+  display: inline-flex;
+  align-items:center;
+}
+text{
+  font-size: 14px;
+}
+.bet{
+  display: inline-flex;
+  width: 100%;
+  justify-content:space-between;
+  align-items:center;
+}
+.gray{
+  color: #888888;
 }

@@ -1,0 +1,31 @@
+/* pages/OrderList/OrderList.wxss */
+.space-between{
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between
+}
+.space-between text{
+  font-size: 26rpx;
+  color: #333333;
+}
+.level{
+  display:inline-flex;
+}
+.vertical{
+  display: inline-flex;
+  flex-direction: column;
+  font-size: 28rpx;
+ 
+}
+.vertical text{
+  align-content: center;
+}
+.center{
+  display: flex;
+  align-items:center;
+}
+.border-top{
+  border-top: 1px solid gray;
+  padding-top: 15rpx;
+  
+}

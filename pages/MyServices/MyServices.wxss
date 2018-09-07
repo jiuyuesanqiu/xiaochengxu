@@ -1,37 +1,50 @@
-.weui-navbar{
-  border-top:1rpx solid #ddd;
-  border-bottom:1rpx solid #ddd;  
-  font-size: 28rpx;
-    color: #333;
+page {
+  background-color: #f5f5f5;
 }
-.alreadyUserService{
-  font-size: 26rpx;
+.all{
+  width: 100%;
+  height: 100%;
+  background: #f5f5f5;
+  padding: 20rpx 0;
+}
+.alreadyUserService {
+    font-size: 26rpx;
     color: #999;
+    width: 710rpx;
     background-color: #fff;
-    margin: 20rpx;
+   margin: 20rpx auto;
     border-radius: 7rpx;
+    background: #fff;
 }
-.alreadyUserService view:first-child{
-   color: #333;
+.alreadyUserService view:first-child {
+    color: #333;
     line-height: 88rpx;
     height: 88rpx;
     margin-left: 20rpx;
-    border-bottom: 1rpx solid #ddd;
+    border-bottom: 1px solid #ddd;
     box-sizing: border-box;
 }
-.alreadyUserService view:first-child text:nth-child(2){
-  color: #40ccab;
-  float: right;
-    padding-right: 20rpx;
+.alreadyUserService view:first-child text{
+  display: inline-block;
+}
+.alreadyUserService view:first-child label {
+    color: #fea26f;
+    float: right;
+   display: inline-block;
+   margin-right: 20rpx;
 }
 .alreadyUserService view:nth-of-type(2) {
     margin-left: 20rpx;
 }
-.alreadyUserService view:nth-child(2) text{
-   padding-top: 20rpx;
+.alreadyUserService  view:nth-of-type(2) text {
+    padding-top: 20rpx;
+    display: block;
     padding-bottom: 30rpx;
-   line-height: 26rpx;
-   display: block;
- 
+}
+.alreadyUserService  view:nth-of-type(2) text:nth-child(3) {
+ overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
+width: 650rpx;
 
 }

@@ -1,0 +1,83 @@
+<!--pages/MemberInformation/MemberInformation.wxml-->
+<view>
+  <view>
+    <text>|基本信息 </text>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">姓名</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" value='{{member.name}}' />
+    </view>
+  </view>
+
+  
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">性别</view>
+    </view>
+    <radio-group class="radio-group" bindchange="radioChange">
+    <label class="radio">
+      <radio value="{{item.name}}" checked="{{member.memberGender=='男'?true:false}}" />男
+      <radio value="{{item.name}}" checked="{{member.memberGender=='女'?true:false}}" />女
+    </label>
+  </radio-group>
+  </view>
+  <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__hd">
+                    <view class="weui-label">出生日期</view>
+                </view>
+                <view class="weui-cell__bd">
+                    <picker mode="date" value="{{member.birth}}" start="1920-01-01" end="2018-07-09" bindchange="bindDateChange">
+                        <view class="weui-input">{{member.birth}}</view>
+                    </picker>
+                </view>
+            </view>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">手机号</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" value='{{member.cellPhone}}'/>
+    </view>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">身份证号</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" value='{{member.idenCard}}'/>
+    </view>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">E-mail</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" value='{{member.email}}' />
+    </view>
+  </view>
+</view>
+<view>
+  <view>
+    <text>|会员信息 </text>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">会员卡号</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" value='{{member.memberNumber}}' />
+    </view>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">会员等级</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" value='{{member.grade}}' />
+    </view>
+  </view>
+  <button type='primary'>保存</button>
+</view>

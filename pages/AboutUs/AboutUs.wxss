@@ -1,0 +1,8 @@
+/* pages/AboutUs/AboutUs.wxss */
+.center{
+  width: 100%;
+  display:inline-flex;
+  justify-content: center; 
+  align-items: center;
+  background-color: grey;
+}

@@ -1,213 +1,41 @@
-var cityData = require('../utils/city.js');
+var app = getApp();
+var doctorResult = []; //请求医生列表接口返回的数据
 Page({
   data: {
     inputShowed: false,
-    inputVal: "",
-    inputCity: "城市",
-    inputHospital: "医院",
-    inputOffice: "科室",
-    inputTtile: "职称",
-    content: [],
-    nv: [],
-    px: [],
-    zc: [],
-    qyopen: false,
-    qyshow: false,
-    pxopen: false,
-    nzopen: false,
-    zcopen: false,
-    nzshow: false,
-    pxshow: false,
-    zcshow: false,
-    isfull: false,
-    cityleft: cityData.getCity(),
-    citycenter: {},
-    cityright: {},
-    select1: '',
-    select2: '',
-    shownavindex: ''
+    doctorArray: [], //医生列表渲染数据
   },
-  showCity: function (e) {
+  onLoad:function(){
+    this.getCityList();
+    this.getHospitalList();
+    this.getDepartmentList();
+    this.getTitleList();
+  },
+  onShow: function() {
+    //初始化页面数据
     this.setData({
-      inputCity: e.target.dataset.text
+      nodata:false,
+      loadStatus:false,
+      condition: false,
+      parameters: {
+        "keywords": "", //搜索关键词
+        "beginRow": 0, //起始行数
+        "count": 10, //每页条数
+        "cityId": 0, //城市编码
+        "hospitalId": 0, //医院编码
+        "departmentId": 0, //部门编码
+        "jobtitle": "" //职称
+      }
     })
-    this.listqy();
-  },
-  showHospital: function (e) {
-    this.setData({
-      inputHospital: e.target.dataset.text
-    })
-    this.list();
-  },
-  showOffice: function (e) {
-    this.setData({
-      inputOffice: e.target.dataset.text
-    })
-    this.listpx();
-  },
-  showTitle: function (e) {
-    this.setData({
-      inputTtile: e.target.dataset.text
-    })
-    this.listzc();
-  },
-  onLoad: function () {
-    this.setData({
-      nv: ['全部', '南山医院', '北山医院', '西山医院', '东山医院', '中山医院'],
-      px: ['全部', '内科', '外科', '妇产科', "儿科", "骨科", "口腔科", "耳鼻喉科", "康复医学科", "其他科室"],
-      zc: ['全部', '主任医师', '主治医生', '主管药师', '副主任医师', '教授', '营养师']
-    })
-  },
-  listqy: function (e) {
-    if (this.data.qyopen) {
+    //设置滚动条高度
+    this.setScrollheight();
+    this.getDoctorList().then((res) => {
       this.setData({
-        qyopen: false,
-        nzopen: false,
-        pxopen: false,
-        zcopen: false,
-        nzshow: true,
-        pxshow: true,
-        zcshow: true,
-        qyshow: false,
-        isfull: false,
-        shownavindex: 0
+        "doctorArray": doctorResult
       })
-    } else {
-      this.setData({
-        qyopen: true,
-        pxopen: false,
-        nzopen: false,
-        zcopen: false,
-        nzshow: true,
-        pxshow: true,
-        zcshow: true,
-        qyshow: false,
-        isfull: true,
-        shownavindex: e.currentTarget.dataset.nav
-      })
-    }
-
-  },
-  list: function (e) {
-    if (this.data.nzopen) {
-      this.setData({
-        nzopen: false,
-        pxopen: false,
-        qyopen: false,
-        zcopen: false,
-        nzshow: false,
-        pxshow: true,
-        qyshow: true,
-        zcshow: true,
-        isfull: false,
-        shownavindex: 0
-      })
-    } else {
-      this.setData({
-        content: this.data.nv,
-        nzopen: true,
-        pxopen: false,
-        qyopen: false,
-        zcopen: false,
-        nzshow: false,
-        pxshow: true,
-        qyshow: true,
-        zcshow: true,
-        isfull: true,
-        shownavindex: e.currentTarget.dataset.nav
-      })
-    }
-  },
-  listpx: function (e) {
-    if (this.data.pxopen) {
-      this.setData({
-        nzopen: false,
-        pxopen: false,
-        qyopen: false,
-        zcopen: false,
-        nzshow: true,
-        pxshow: false,
-        qyshow: true,
-        zcshow: true,
-        isfull: false,
-        shownavindex: 0
-      })
-    } else {
-      this.setData({
-        content: this.data.px,
-        nzopen: false,
-        pxopen: true,
-        qyopen: false,
-        zcopen: false,
-        nzshow: true,
-        pxshow: false,
-        qyshow: true,
-        zcshow: true,
-        isfull: true,
-        shownavindex: e.currentTarget.dataset.nav
-      })
-    }
-  },
-  listzc: function (e) {
-    if (this.data.zcopen) {
-      this.setData({
-        nzopen: false,
-        pxopen: false,
-        qyopen: false,
-        zcopen: false,
-        nzshow: true,
-        pxshow: true,
-        qyshow: true,
-        zcshow: false,
-        isfull: false,
-        shownavindex: 0
-      })
-    } else {
-      this.setData({
-        content: this.data.zc,
-        nzopen: false,
-        pxopen: false,
-        qyopen: false,
-        zcopen: true,
-        nzshow: true,
-        pxshow: true,
-        qyshow: true,
-        zcshow: false,
-        isfull: true,
-        shownavindex: e.currentTarget.dataset.nav
-      })
-    }
-  },
-  selectleft: function (e) {
-
-    this.setData({
-      cityright: {},
-      citycenter: this.data.cityleft[e.currentTarget.dataset.city],
-      select1: e.target.dataset.city,
-      select2: ''
     });
   },
-  selectcenter: function (e) {
-
-    this.setData({
-      cityright: this.data.citycenter[e.currentTarget.dataset.city],
-      select2: e.target.dataset.city
-    });
-  },
-  hidebg: function (e) {
-
-    this.setData({
-      qyopen: false,
-      nzopen: false,
-      pxopen: false,
-      nzshow: true,
-      pxshow: true,
-      qyshow: true,
-      isfull: false,
-      shownavindex: 0
-    })
-  },
-  showInput: function () {
+  showInput: function() {
     this.setData({
       inputShowed: true
     });
@@ -217,24 +45,225 @@ Page({
       inputVal: "",
       inputShowed: false
     });
+    //清除关键字搜索
+    var e = {
+      "detail": { "value": "" }
+    };
+    this.search(e)
   },
-  clearInput: function () {
+  clearInput: function() {
     this.setData({
       inputVal: ""
     });
   },
-  inputTyping: function (e) {
+  inputTyping: function(e) {
     this.setData({
       inputVal: e.detail.value
     });
   },
-  lower: function (e) {
-
-  },
-  toin: function () {
+  toin: function(e) {
     wx.navigateTo({
-      url: '../DoctorsHome/DoctorsHome'
+      url: '../DoctorsHome/DoctorsHome?doctorId=' + e.currentTarget.dataset.doctorid + "&introduction=" + e.currentTarget.dataset.introduction
     })
-    console.log(2);
+  },
+  //按条件搜索
+  search: function(e) {
+    var that = this;
+    var keywords = "";
+    if(e!=undefined){
+      keywords=e.detail.value
+    }
+    console.log("搜索内容是",keywords)
+    console.log("搜索的条件是", that.data.parameters)
+    //初始化
+    that.setData({
+      "parameters.keywords": keywords,
+      "parameters.beginRow": 0,
+      "nodata": false
+    })
+    that.getDoctorList().then(res=>{
+      that.setData({
+        "doctorArray": doctorResult
+      })
+    });
+  },
+  setScrollheight: function() {
+    var that = this;
+    wx.getSystemInfo({
+      success: function(res) {
+        that.setData({
+          "scrollHeight": res.windowHeight-48
+        })
+      },
+    })
+  },
+  /**
+   * 获取医生列表数据
+   */
+  getDoctorList: function() {
+    var that = this;
+    var promise = new Promise((resolve, reject) => {
+      var url = app.globalData.domain + 'doctor/famousDoctorList.do';
+      app.post(url, that.data.parameters).then((res) => {
+        doctorResult = res;
+        resolve("赋值成功")
+      })
+    });
+    return promise;
+  },
+  /**
+   * 滚动到底部时加载下一页数据
+   */
+  lower: function() {
+    if (doctorResult.length == 0) {
+      return false;
+    }
+    //显示加载中
+    this.setData({
+      loadStatus:true
+    })
+    var that = this;
+    var parameters = that.data.parameters;
+    var beginRow = parameters.beginRow + parameters.count;
+    that.setData({
+      "parameters.beginRow": beginRow
+    })
+    that.getDoctorList().then((res) => {
+      if (doctorResult.length == 0) {
+        that.setData({
+          loadStatus: false,
+          "nodata": true
+        })
+        return false;
+      }
+      setTimeout(() => {
+        that.setData({
+          "doctorArray": that.data.doctorArray.concat(doctorResult),
+          //隐藏加载中
+          loadStatus: false
+        })
+      }, 500)
+    })
+  },
+  /**
+   * 获取城市列表数据
+   */
+  getCityList: function () {
+    var that = this;
+    wx.request({
+      url: app.globalData.domain + 'doctor/areaList.do',
+      success: function (res) {
+        //在数组前添加元素
+        res.data.data.unshift({
+          "cityId": 9999,
+          "cityName": "全部",
+          "pid": 0
+        },{
+            "cityId": 0,
+            "cityName": "全部",
+            "pid": 9999
+          })
+        that.setData({
+          "cityArray": res.data.data
+        })
+      },
+    })
+  },
+  /**
+   * 获取医院列表
+   */
+  getHospitalList: function (cityId) {
+    cityId == undefined ? cityId = 0 : cityId;
+    var that = this;
+    wx.request({
+      url: app.globalData.domain + 'doctor/hospitalList.do',
+      data: {
+        "areaId": cityId
+      },
+      success: function (res) {
+        res.data.data.unshift({
+          "hospitalName": "全部",
+          "hospitalId": 0,
+          "areaId": 0
+        })
+        that.setData({
+          "hospitalArray": res.data.data
+        })
+      },
+    })
+  },
+  /**
+   * 获取科室列表
+   */
+  getDepartmentList: function () {
+    var that = this;
+    wx.request({
+      url: app.globalData.domain + 'doctor/deptList.do',
+      success: function (res) {
+        res.data.data.unshift({
+          "pid": 9999,
+          "departmentId": 0,
+          "departmentName": "全部"
+        },{
+            "pid": 0,
+            "departmentId": 9999,
+            "departmentName": "全部"
+          })
+        that.setData({
+          "departmentArray": res.data.data
+        })
+      },
+    })
+  },
+  /**
+   * 获取职称列表
+   */
+  getTitleList: function () {
+    var that = this;
+    wx.request({
+      url: app.globalData.domain + 'doctor/docJobTitleList.do',
+      success: function (res) {
+        res.data.data.unshift({
+          "jobtitle": "全部",
+          "sumJobTitle": "",
+          "depId": 0
+        })
+        that.setData({
+          "titleArray": res.data.data
+        })
+      },
+    })
+  },
+  /**
+   * 城市修改后
+   */
+  cityChange: function (e) {
+    //修改医院数据
+    this.getHospitalList(e.detail.thisId)
+    this.setData({
+      "parameters.cityId":e.detail.thisId
+    })
+    this.search()
+  },
+  titleChange: function (e) {
+    if(e.detail.thisId=="全部"){
+      e.detail.thisId=""
+    }
+    this.setData({
+      "parameters.jobtitle": e.detail.thisId
+    })
+    this.search()
+  },
+  hospitalChange: function (e) {
+    this.setData({
+      "parameters.hospitalId": e.detail.thisId
+    })
+    this.search()
+  },
+  departmentChange:function(e){
+    this.setData({
+      "parameters.departmentId": e.detail.thisId
+    })
+    this.search()
   }
 });

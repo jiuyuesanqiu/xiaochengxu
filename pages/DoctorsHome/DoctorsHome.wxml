@@ -7,13 +7,13 @@
       <view class='doctors-home'>
         <image src='../img/baiyang.png'></image>
         <view>
-          <text>张启怀</text>
-          <text>主任医师</text>
+          <text>{{doctorDetails.doctorName}}</text>
+          <text>{{doctorDetails.jobtitle}}</text>
         </view>
 
         <view>
           <image src='../img/dingwei@3x.png'></image>
-          <text>深圳南山医院 | 全科</text>
+          <text>{{doctorDetails.hospital}} | {{doctorDetails.depart}}</text>
         </view>
 
       </view>
@@ -30,30 +30,29 @@
           </view>
           <view class="weui-tab__panel">
             <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
-
               <view class='ServiceItems'>
-
                 <view class='items'>
-
-                  <view bindtap='toleft'>
-                    <image src='../img/pic@2x.png'></image>
+                  <view>
+                    <image src='../img/img_consult.png'></image>
                     <text>名医图文咨询</text>
-                    <text>¥100.00/次</text>
-                    <text>了解服务说明</text>
+                    <text class='gray'>暂无</text>
+                    <text bindtap='openAlert1'>了解服务说明</text>
                   </view>
 
-                  <view bindtap='tocenter'>
-                    <image src='../img/Feed@2x.png'></image>
+                  <view>
+                    <image src='../img/phone_consult.png'></image>
                     <text>名医电话咨询</text>
-                    <text>¥100.00/30分钟</text>
-                    <text>了解服务说明</text>
+                    <text class='gray'>暂无</text>
+                    <text bindtap='openAlert2'>了解服务说明</text>
                   </view>
 
-                  <view bindtap='toright'>
-                    <image src='../img/yyjy@3x.png'></image>
-                    <text>名医看诊</text>
-                    <text>立即预约</text>
-                    <text>了解服务说明</text>
+                  <view>
+                    <view bindtap='toright'>
+                      <image src='../img/yyjy@3x.png'></image>
+                      <text>名医看诊</text>
+                      <text>￥1000.00/次</text>
+                    </view>
+                    <text bindtap='openAlert3'>了解服务说明</text>
                   </view>
 
                 </view>
@@ -61,34 +60,83 @@
                 <view class='clear'></view>
                 <view class='Expertise'>
                   <view>
-                      <image src='../img/bt@2x.png'></image>
-                      <text>擅长</text>
-                      <image src='../img/down2@2x.png'></image>
+                    <image src='../img/bt@2x.png'></image>
+                    <text>擅长</text>
+                    <image src='../img/down2@2x.png'></image>
                   </view>
 
                   <view>
-                    维护等换货单号DVD电话电话害的我等会我把电话我的DVD的获取电话DVD和把的缓存的时候的城市的缓存的缓存的缓存吃v 维护等换货单号DVD电话电话害的我等会我把电话我的DVD的获取电话DVD和把的缓存的时候的城市的缓存的缓存的缓存吃v
-
+                    {{introduction}}
                   </view>
 
                 </view>
 
                 <view class='clear'></view>
                 <view class='introduce Expertise'>
-                  <view >
+                  <view>
                     <image src='../img/bt@2x.png'></image>
                     <text>医生介绍</text>
                     <image src='../img/down2@2x.png'></image>
                   </view>
 
                   <view>
-                    维护等换货单号DVD电话电话害的我等会我把电话我的DVD的获取电话DVD和把的缓存的时候的城市的缓存的缓存的缓存吃v 维护等换货单号DVD电话电话害的我等会我把电话我的DVD的获取电话DVD和把的缓存的时候的城市的缓存的缓存的缓存吃v
+                    {{doctorDetails.description}}
                   </view>
                 </view>
               </view>
             </view>
-            <view class="weui-tab__content" hidden="{{activeIndex != 1}}">选项二的内容</view>
-            <view class="weui-tab__content" hidden="{{activeIndex != 2}}">选项三的内容</view>
+            <!-- <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+              <view class='box'>
+                <view class='col'>
+                  <view>排班</view>
+                  <view>上午</view>
+                  <view>下午</view>
+                </view>
+                <view class='col'>
+                  <view>星期三</view>
+                  <view>01-10</view>
+                  <view>约满</view>
+                  <view>过期</view>
+                </view>
+              </view>
+            </view> -->
+
+            <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+              <view class='box'>
+                <view>
+                  <text>疗效</text>
+                  <image src='../img/star.png'></image>
+                  <image src='../img/star.png'></image>
+                  <image src='../img/star.png'></image>
+                  <image src='../img/star.png'></image>
+                  <image src='../img/star.png'></image>
+                </view>
+                <view>
+                  <text>态度</text>
+                  <image src='../img/star.png'></image>
+                  <image src='../img/star.png'></image>
+                  <image src='../img/star.png'></image>
+                  <image src='../img/star.png'></image>
+                  <image src='../img/star.png'></image>
+                </view>
+              </view>
+              <view style='padding:20px'>
+                <view class='bet'>
+                  <view class='center'>
+                    <image src='../img/head.png' style='width:80rpx;height:80rpx'></image>
+                    <text>哮喘</text>
+                  </view>
+                  <text>患者于两年前发表</text>
+                </view>
+                <view class="bet">
+                  <text>疗效：很满意</text>
+                  <text>态度：很满意</text>
+                </view>
+                <text>
+                邱老，初见不苟言笑，话很少，但是经过问诊，给我指出了非常明确的治疗方向，而且在确诊病因的过程中，邱老能全心全意的为患者着想，尽量让我们减少费用花销。当时让身处绝境的我眼泪都流出来了，邱老，非常感谢您，希望您身体健康！谢谢您
+                </text>
+              </view>
+            </view>
           </view>
         </view>
       </view>

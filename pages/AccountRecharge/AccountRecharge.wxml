@@ -1,0 +1,14 @@
+<view id='wrapper'>
+  <view class='amount'>
+    <text>金额</text>
+  </view>
+  <view class="content">
+    <input bindinput='setAmount' type='number' placeholder='请输入充值金额'></input>
+  </view>
+</view>
+<view>
+  <button bindtap='recharge' type="primary">立即充值</button>
+</view>
+<view class="weui-footer weui-footer_fixed-bottom">
+  <view class="weui-footer__text">储值金额暂不支持提现</view>
+</view>

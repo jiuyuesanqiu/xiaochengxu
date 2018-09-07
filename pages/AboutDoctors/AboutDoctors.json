@@ -1,8 +1,12 @@
 {
-  "navigationBarBackgroundColor": "#000",
-  "navigationBarTextStyle": "#fff",
+  "navigationBarBackgroundColor": "#F5F5F5",
+  "navigationBarTextStyle": "black",
   "navigationBarTitleText": "约名医",
-  "backgroundColor": "#fff",
+  "backgroundColor": "#ffffff",
   "backgroundTextStyle": "light",
-  "enablePullDownRefresh": false
+  "disableScroll": true,
+  "usingComponents": {
+    "pull-down-filtrate": "../../components/pull-down-filtrate/pull-down-filtrate",
+    "multiSelector": "../../components/multiSelector/multiSelector"
+  }
 }

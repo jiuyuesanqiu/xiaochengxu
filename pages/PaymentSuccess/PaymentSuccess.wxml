@@ -17,17 +17,8 @@
      
         <text>订单金额:</text>
         <text>￥</text>
-        <text>50</text>
+        <text>1</text>
      
-    </view>
-
-    <view>
-      
-        <text>企业支付: ￥45</text>
-      
-        <text>员工支付: ￥5</text>
-        
-      
     </view>
 
   </view>

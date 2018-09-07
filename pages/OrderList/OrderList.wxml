@@ -1,0 +1,30 @@
+<!--pages/OrderList/OrderList.wxml-->
+
+<block wx:for="{{orderList}}">
+  <view style='margin:20rpx;background-color: #f5f5f5 '>
+    <view class='space-between'>
+      <text>订单编号：{{item.orderNum}}</text>
+      <text style='color:#ff8c44'>{{item.orderStatus}}</text>
+    </view>
+    <view class='space-between border-top'>
+      <view class='level'>
+        <image style='height:130rpx;width:178rpx;margin-right:20rpx' src='../img/kzj.png'></image>
+        <view class='vertical'>
+          <text style='height:50%'>{{item.productArr.prctName}}</text>
+          <text>支付金额：￥{{item.odrPaidAmount}}</text>
+        </view>
+      </view>
+      <view class='center'>
+        <text style='color:white;background-color: #494c5b;border-radius: 10rpx'>再次购买</text>
+      </view>
+    </view>
+  </view>
+</block>
+<view wx:if="{{condition}}" class='nodata'>
+  <view>
+    <image src='../img/no_order.png'></image>
+    <text>
+        暂无订单记录
+    </text>
+  </view>
+</view>

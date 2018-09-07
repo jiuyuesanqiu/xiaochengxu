@@ -1,0 +1,13 @@
+<!--components/pull-down-filtrate/pull-down-filtrate.wxml-->
+<view>
+  <picker bindchange="_bindPickerChange" value='{{index}}' range="{{array}}" range-key='{{key}}'>
+    <view class="picker">
+      <view wx:if="{{condition}}">
+        {{array[index][key]}}
+      </view>
+      <view wx:if="{{!condition}}">
+        {{itemName}}
+      </view>
+    </view>
+  </picker>
+</view>

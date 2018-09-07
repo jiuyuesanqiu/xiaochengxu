@@ -1,103 +1,58 @@
-<view class="all" id="personalAll">
-
-  <view class="bgContent">
-    <image src='../img/bag_pic.png'></image>
-  </view>
-
-  <view class='top'>
-    <view class="header">
-      <image src='../img/top.jpg'></image>
-    </view>
-    <view class="title">
-
-      <view class="name">林宝</view>
-      <view class="basicallyInfo">
-        <text>基本信息</text>
-        <image src='../img/work_bac_icon.png'></image>
-      </view>
-      <image src='../img/xiaoxi_icon@2x.png' class='news'></image>
-
-    </view>
-
-  </view>
-
-  <view class="personalContent">
-    <view class="doctor_text">
-      <view class="text">
-        <text>健康咨询</text>
-        <text>服务状态：正在处理</text>
-        <image src='../img/right@2x.png'></image>
-        <text>咨询日期：2018-06-07 17:43:40</text>
-
-      </view>
-    </view>
-
-    <view class="functionalOperation">
+<view>
+  <view class='bg'>
+    <view class='head'><image src='../img/memberhead.png'></image></view>
+    <view class='content'>
       <view>
-        <image src='../img/me_dingdan_icon.png'></image>
+        <text class='name'>{{item.name}}</text>
+        <text class='grade'>{{item.grade}}</text>
+      </view>
+      <view class='layout'>
+        <text class='information' bindtap='toInformation'>基本信息</text>
+      </view>
+    </view>
+  </view>
+  <view class='tab'>
+    <view class='list-tab'>
+      <image src='../img/balance.png'></image>
+      <view>
+        <text>余额</text>
+        <text>{{balance}}元</text>
+      </view>
+    </view>
+    <view class='list-tab' bindtap='toRecharge'>
+      <image src='../img/recharge.png'></image>
+      <view>
+        <text>充值</text>
+        <image src='../img/right_arrows.png'></image>
+      </view>
+    </view>
+    <view class='list-tab' bindtap='toAccountWater'>
+      <image src='../img/detail.png'></image>
+      <view>
+        <text>明细</text>
+        <image src='../img/right_arrows.png'></image>
+      </view>
+    </view>
+    <view class='list-tab' bindtap='toOrderList'>
+      <image src='../img/order.png'></image>
+      <view>
         <text>我的订单</text>
+        <image src='../img/right_arrows.png'></image>
       </view>
+    </view>
+    <view class='list-tab' bindtap='toMyService'>
+      <image src='../img/no_service.png'></image>
       <view>
-        <image src='../img/me_fuwu_icon.png'></image>
         <text>我的服务</text>
+        <image src='../img/right_arrows.png'></image>
       </view>
+    </view>
+    <view class='list-tab' bindtap='toWe'>
+      <image src='../img/about_as.png'></image>
       <view>
-        <image src='../img/me_coupon.png'></image>
-        <text>我的优惠券</text>
+        <text>关于我们</text>
+        <image src='../img/right_arrows.png'></image>
       </view>
-    </view>
-
-    <view class="functionalOperation">
-      <view>
-        <image src='../img/health_icon.png'></image>
-        <text>健康档案</text>
-      </view>
-      <view>
-        <image src='../img/fuwutongji_icon.png'></image>
-        <text>服务统计</text>
-      </view>
-      <view>
-        <image src='../img/jkcard_icon.png'></image>
-        <text>我的服务卡</text>
-      </view>
-    </view>
-
-
-
-  </view>
-
-  <view class="balance">
-    <view>
-      <text>￥9217.70</text>
-      <text>我的余额(元)</text>
-    </view>
-    <view class="recharge">
-      <text>充值</text>
-    </view>
-    <view>明细</view>
-  </view>
-
-  <view class="listNav">
-    <view>
-      <text>我的病历</text>
-      <image src='../img/right@2x.png'></image>
-    </view>
-    <view>
-      <text>全科咨询</text>
-      <image src='../img/right@2x.png'></image>
-    </view>
-    <view>
-      <text>在线客服</text>
-      <image src='../img/right@2x.png'></image>
-    </view>
-    <view>
-      <text>意见反馈</text>
-      <image src='../img/right@2x.png'></image>
-    </view>
-    <view>
-      <text>用户协议</text>
-      <image src='../img/right@2x.png'></image>
     </view>
   </view>
-
 </view>

@@ -1,8 +1,7 @@
-{
-  "navigationBarBackgroundColor": "#000",
-  "navigationBarTextStyle": "#fff",
-  "navigationBarTitleText": "我的服务",
-  "backgroundColor": "#fff",
-  "backgroundTextStyle": "light",
-  "enablePullDownRefresh": false
-}
+ {
+    "navigationBarBackgroundColor": "#F5F5F5",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "我的服务",
+    "backgroundColor": "#ffffff",
+    "backgroundTextStyle": "light"
+  }

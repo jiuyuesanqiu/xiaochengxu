@@ -1,89 +1,20 @@
-<view class="page">
-  <view class="page__bd">
-    <view class="weui-tab">
-      <view class="weui-navbar">
-        <block wx:for="{{tabs}}" wx:key="*this">
-          <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
-            <view class="weui-navbar__title">{{item}}</view>
-          </view>
-        </block>
-        <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
-      </view>
-      <view class="weui-tab__panel">
-
-
-        <view class='container'>
-          <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
-
-            <view class="alreadyUserService">
-              <view >
-                <text>看专家</text>
-                <text>查看</text>
-              </view>
-              <view>
-                <text>服务状态：服务取消</text>
-                <text>看诊日期：2018-06-01 </text>
-
-              </view>
-            </view>
-            
-            <view class="alreadyUserService">
-              <view>
-                <text>看专家</text>
-                <text>查看</text>
-              </view>
-              <view>
-                <text>服务状态：服务取消</text>
-                <text>看诊日期：2018-06-01 </text>
-
-              </view>
-            </view>
-
-
-
-
-          </view>
-          <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
-            <view class="alreadyUserService">
-              <view>
-                <text>看专家</text>
-                <text>查看</text>
-              </view>
-              <view>
-                <text>服务状态：服务取消</text>
-                <text>看诊日期：2018-06-01 </text>
-
-              </view>
-            </view>
-          </view>
-          <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
-            <view class="alreadyUserService">
-              <view>
-                <text>看专家</text>
-                <text>查看</text>
-              </view>
-              <view>
-                <text>服务状态：服务取消</text>
-                <text>看诊日期：2018-06-01 </text>
-
-              </view>
-            </view>
-          </view>
-          <view class="weui-tab__content" hidden="{{activeIndex != 3}}">
-            <view class="alreadyUserService">
-              <view>
-                <text>看专家</text>
-                <text>查看</text>
-              </view>
-              <view>
-                <text>服务状态：服务取消</text>
-                <text>看诊日期：2018-06-01 </text>
-
-              </view>
-            </view>
-          </view>
-        </view>
-      </view>
-    </view>
+<view class="alreadyUserService" wx:for="{{list}}" wx:key="index">
+  <view>
+    <text>{{item.name}}</text>
+    <!-- <label>查看</label> -->
+  </view>
+  <view>
+    <text>更新状态：{{item.customizedStatus}}</text>
+    <text>预约时间：{{item.createTime}}</text>
+    <text wx:if="{{item.illnessMainsuit}}">疾病描述：{{item.illnessMainsuit}}</text>
+    <text wx:if="{{item.remark}}">备注：{{item.remark}}</text>
+  </view>
+</view>
+<view wx:if="{{condition}}" class='nodata'>
+  <view>
+    <image src='../img/no_service.png'></image>
+    <text>
+        您未预约过任何服务
+    </text>
   </view>
 </view>
