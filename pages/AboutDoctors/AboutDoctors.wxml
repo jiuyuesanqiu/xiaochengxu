@@ -35,7 +35,7 @@
   <scroll-view scroll-y='true' style="height:{{scrollHeight}}px" bindscrolltolower='lower'>
     <block wx:for="{{doctorArray}}" data-id="{{index}}" wx:key="{{index}}">
       <view class='doctors-details' catchtap='toin' data-doctorId='{{item.docId}}' data-introduction='{{item.introduction}}'>
-        <image src='../img/baiyang.png'></image>
+        <image src='../img/doctor.png'></image>
         <view class='doctors-details-right'>
           <view>
             <text>{{item.docName}}</text>

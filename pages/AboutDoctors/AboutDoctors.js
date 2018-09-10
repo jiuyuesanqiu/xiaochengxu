@@ -106,6 +106,7 @@ Page({
       var url = app.globalData.domain + 'doctor/famousDoctorList.do';
       app.post(url, that.data.parameters).then((res) => {
         doctorResult = res;
+        console.log(res)
         resolve("赋值成功")
       })
     });
